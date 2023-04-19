@@ -40,6 +40,7 @@
     ]
   },
   "esmodules": [
+    "./scripts/init.js"
   ],
   "scripts": [
   ],
