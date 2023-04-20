@@ -10,7 +10,7 @@ export class RollHandler extends CoreRollHandler {
 
     switch (macroType) {
       case "initiative":
-        console.log("Roll initiative here")
+        this.actor.rollInitiative({createCombatants: true});
         break;
       default:
         break;

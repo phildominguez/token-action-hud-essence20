@@ -23,7 +23,7 @@ export class ActionHandler extends CoreActionHandler {
     const actions = [{
       id: 'initiative-action-id',
       name: 'Initiative',
-      encodedValue: 'initiative|foo',
+      encodedValue: 'initiative',
     }];
     this.addActionsToActionList(actions, parent);
   }
