@@ -2,9 +2,12 @@
  * Default categories and subcategories
  */
 
-export const INITIATIVE_ID = 'initiative';
-
+export const INITIATIVE_ID = 'id-initiative';
 export const INITIATIVE_NAME = "Initiative";
+
+export const WEAPONS_ID = 'id-weapons';
+export const WEAPONS_NAME = "Weapons";
+
 export const ROLL_NAME = "Roll";
 
 export const DEFAULTS = {
@@ -16,8 +19,23 @@ export const DEFAULTS = {
       type: 'system',
       subcategories: [ // The action groups visible when a Category is hovered/clicked
         {
-          nestId: 'initiative-nest-id',
+          nestId: 'nest-id-initiative',
           id: INITIATIVE_ID,
+          name: "",
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+      ],
+    },
+    {
+      nestId: WEAPONS_ID,
+      id: WEAPONS_ID,
+      name: WEAPONS_NAME,
+      type: 'system',
+      subcategories: [
+        {
+          nestId: 'nest-id-weapons',
+          id: WEAPONS_ID,
           name: "",
           type: 'system',
           hasDerivedSubcategories: false,
