@@ -32,6 +32,6 @@ export class SystemManager extends CoreSystemManager {
   }
 
   async doRegisterDefaultFlags () {
-    return DEFAULTS
+    return DEFAULTS;
   }
 }
