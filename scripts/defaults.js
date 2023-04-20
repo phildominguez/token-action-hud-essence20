@@ -8,6 +8,9 @@ export const INITIATIVE_NAME = "Initiative";
 export const WEAPONS_ID = 'id-weapons';
 export const WEAPONS_NAME = "Weapons";
 
+export const POWERS_ID = 'id-powers';
+export const POWERS_NAME = "Powers";
+
 export const ROLL_NAME = "Roll";
 
 export const DEFAULTS = {
@@ -36,6 +39,21 @@ export const DEFAULTS = {
         {
           nestId: 'nest-id-weapons',
           id: WEAPONS_ID,
+          name: "",
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+      ],
+    },
+    {
+      nestId: POWERS_ID,
+      id: POWERS_ID,
+      name: POWERS_NAME,
+      type: 'system',
+      subcategories: [
+        {
+          nestId: 'nest-id-powers',
+          id: POWERS_ID,
           name: "",
           type: 'system',
           hasDerivedSubcategories: false,
