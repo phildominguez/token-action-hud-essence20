@@ -11,6 +11,13 @@ export const WEAPONS_NAME = "Weapons";
 export const POWERS_ID = 'id-powers';
 export const POWERS_NAME = "Powers";
 
+export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
+export const INFO_WEAPONS_ID = 'id-info-weapons'
+export const INFO_ARMOR_ID = 'id-info-armor'
+export const INFO_ID = 'id-info'
+export const INFO_NAME = "Info";
+export const ARMOR_NAME = "Armor";
+
 export const ROLL_NAME = "Roll";
 
 export const DEFAULTS = {
@@ -55,6 +62,35 @@ export const DEFAULTS = {
           nestId: 'nest-id-powers',
           id: POWERS_ID,
           name: "",
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+      ],
+    },
+    {
+      nestId: INFO_ID,
+      id: INFO_ID,
+      name: INFO_NAME,
+      type: 'system',
+      subcategories: [
+        {
+          nestId: 'nest-id-info-class-features',
+          id: INFO_CLASS_FEATURES_ID,
+          name: "Class Features",
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-weapons',
+          id: INFO_WEAPONS_ID,
+          name: WEAPONS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-weapons',
+          id: INFO_ARMOR_ID,
+          name: ARMOR_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },

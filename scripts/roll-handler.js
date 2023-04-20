@@ -15,16 +15,19 @@ export class RollHandler extends CoreRollHandler {
       case 'item':
         this.rollItemMacro(event, actionId);
         break;
+      case 'info':
+        this.rollItemMacro(event, actionId, {rollType: 'info'});
+        break;
       default:
         break;
     }
   }
 
-  rollItemMacro(event, actionId) {
+  rollItemMacro(event, actionId, dataset={}) {
     const item = this.actor.items.find((i) => i.id === actionId);
 
     if (item) {
-      item.roll({});
+      item.roll(dataset);
     }
   }
 }

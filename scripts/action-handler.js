@@ -1,8 +1,12 @@
 import { CoreActionHandler, CoreUtils } from './config.js'
 import {
+  INFO_ID,
   INITIATIVE_ID,
   POWERS_ID,
   WEAPONS_ID,
+  INFO_CLASS_FEATURES_ID,
+  INFO_WEAPONS_ID,
+  INFO_ARMOR_ID,
 } from './defaults.js';
 
 export class ActionHandler extends CoreActionHandler {
@@ -21,6 +25,7 @@ export class ActionHandler extends CoreActionHandler {
     this._addInitiativeActions(actor, tokenId, { id: INITIATIVE_ID, type: 'system' })
     this._addWeaponsActions(actor, tokenId, { id: WEAPONS_ID, type: 'system' })
     this._addPowersActions(actor, tokenId, { id: POWERS_ID, type: 'system' })
+    this._addInfoActions(actor, tokenId, { id: INFO_ID, type: 'system' })
   }
 
   _addInitiativeActions(actor, tokenId, parent) {
@@ -40,10 +45,19 @@ export class ActionHandler extends CoreActionHandler {
     this.addActionsToActionList(this._getActionsForItemType('power', actor), parent);
   }
 
-  _getActionsForItemType(type, actor) {
+  _addInfoActions(actor, tokenId, parent) {
+    this.addActionsToActionList(
+      this._getActionsForItemType('classFeature', actor, 'info'), { id: INFO_CLASS_FEATURES_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('weapon', actor, 'info'), { id: INFO_WEAPONS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('armor', actor, 'info'), { id: INFO_ARMOR_ID, type: 'system' });
+  }
+
+  _getActionsForItemType(type, actor, actionId='item') {
     return actor.items.filter((i) => !!i && i.type == type)
       .map((i) => {
-        let encodedValue = ['item', i.id].join(
+        let encodedValue = [actionId, i.id].join(
           this.delimiter
         );
         return { name: i.name, encodedValue: encodedValue, id: i.id };
