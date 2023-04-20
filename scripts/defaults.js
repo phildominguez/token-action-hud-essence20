@@ -25,6 +25,18 @@ export const POWERS_ID = 'id-powers';
 export const INFO_POWERS_ID = 'id-info-powers'
 export const POWERS_NAME = "Powers";
 
+export const INFO_PERKS_ID = 'id-info-perks'
+export const PERKS_NAME = "Perks";
+
+export const INFO_ORIGINS_ID = 'id-info-origins'
+export const ORIGINS_NAME = "Origins";
+
+export const INFO_BONDS_ID = 'id-info-bonds'
+export const BONDS_NAME = "Bonds";
+
+export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
+export const HANG_UPS_NAME = "Hang-Ups";
+
 export const INFO_ID = 'id-info'
 export const INFO_NAME = "Info";
 
@@ -122,6 +134,34 @@ export const DEFAULTS = {
           nestId: 'nest-id-info-powers',
           id: INFO_POWERS_ID,
           name: POWERS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-perks',
+          id: INFO_PERKS_ID,
+          name: PERKS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-origins',
+          id: INFO_ORIGINS_ID,
+          name: ORIGINS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-bonds',
+          id: INFO_BONDS_ID,
+          name: BONDS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-bonds',
+          id: INFO_HANG_UPS_ID,
+          name: HANG_UPS_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },

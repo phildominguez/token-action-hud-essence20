@@ -10,6 +10,10 @@ import {
   INFO_CONTACTS_ID,
   INFO_GEAR_ID,
   INFO_POWERS_ID,
+  INFO_PERKS_ID,
+  INFO_ORIGINS_ID,
+  INFO_BONDS_ID,
+  INFO_HANG_UPS_ID,
 } from './defaults.js';
 
 export class ActionHandler extends CoreActionHandler {
@@ -61,6 +65,14 @@ export class ActionHandler extends CoreActionHandler {
       this._getActionsForItemType('gear', actor, 'info'), { id: INFO_GEAR_ID, type: 'system' });
     this.addActionsToActionList(
       this._getActionsForItemType('power', actor, 'info'), { id: INFO_POWERS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('perk', actor, 'info'), { id: INFO_PERKS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('origin', actor, 'info'), { id: INFO_ORIGINS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('bond', actor, 'info'), { id: INFO_BONDS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('hangUp', actor, 'info'), { id: INFO_HANG_UPS_ID, type: 'system' });
   }
 
   _getActionsForItemType(type, actor, actionId = 'item') {
