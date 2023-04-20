@@ -7,16 +7,26 @@ export const INITIATIVE_NAME = "Initiative";
 
 export const WEAPONS_ID = 'id-weapons';
 export const WEAPONS_NAME = "Weapons";
-
-export const POWERS_ID = 'id-powers';
-export const POWERS_NAME = "Powers";
+export const INFO_WEAPONS_ID = 'id-info-weapons'
 
 export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
-export const INFO_WEAPONS_ID = 'id-info-weapons'
+export const CLASS_FEATURES_NAME = "Class Features";
+
 export const INFO_ARMOR_ID = 'id-info-armor'
+export const ARMOR_NAME = "Armor";
+
+export const INFO_CONTACTS_ID = 'id-info-contacts'
+export const CONTACTS_NAME = "Contacts";
+
+export const INFO_GEAR_ID = 'id-info-gear'
+export const GEAR_NAME = "Gear";
+
+export const POWERS_ID = 'id-powers';
+export const INFO_POWERS_ID = 'id-info-powers'
+export const POWERS_NAME = "Powers";
+
 export const INFO_ID = 'id-info'
 export const INFO_NAME = "Info";
-export const ARMOR_NAME = "Armor";
 
 export const ROLL_NAME = "Roll";
 
@@ -76,7 +86,7 @@ export const DEFAULTS = {
         {
           nestId: 'nest-id-info-class-features',
           id: INFO_CLASS_FEATURES_ID,
-          name: "Class Features",
+          name: CLASS_FEATURES_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },
@@ -91,6 +101,27 @@ export const DEFAULTS = {
           nestId: 'nest-id-info-weapons',
           id: INFO_ARMOR_ID,
           name: ARMOR_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-contacts',
+          id: INFO_CONTACTS_ID,
+          name: CONTACTS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-gear',
+          id: INFO_GEAR_ID,
+          name: GEAR_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-powers',
+          id: INFO_POWERS_ID,
+          name: POWERS_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },

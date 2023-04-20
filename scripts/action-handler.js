@@ -7,6 +7,9 @@ import {
   INFO_CLASS_FEATURES_ID,
   INFO_WEAPONS_ID,
   INFO_ARMOR_ID,
+  INFO_CONTACTS_ID,
+  INFO_GEAR_ID,
+  INFO_POWERS_ID,
 } from './defaults.js';
 
 export class ActionHandler extends CoreActionHandler {
@@ -52,9 +55,15 @@ export class ActionHandler extends CoreActionHandler {
       this._getActionsForItemType('weapon', actor, 'info'), { id: INFO_WEAPONS_ID, type: 'system' });
     this.addActionsToActionList(
       this._getActionsForItemType('armor', actor, 'info'), { id: INFO_ARMOR_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('contact', actor, 'info'), { id: INFO_CONTACTS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('gear', actor, 'info'), { id: INFO_GEAR_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('power', actor, 'info'), { id: INFO_POWERS_ID, type: 'system' });
   }
 
-  _getActionsForItemType(type, actor, actionId='item') {
+  _getActionsForItemType(type, actor, actionId = 'item') {
     return actor.items.filter((i) => !!i && i.type == type)
       .map((i) => {
         let encodedValue = [actionId, i.id].join(
