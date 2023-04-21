@@ -18,6 +18,20 @@ export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
 export const INFO_NAME = "Info";
 export const INFO_ID = 'id-info'
 
+/* Subcategories - Skills */
+
+export const STRENGTH_NAME = "Strength";
+export const SKILLS_STRENGTH_ID = 'id-skills-strength';
+
+export const SPEED_NAME = "Speed";
+export const SKILLS_SPEED_ID = 'id-skills-speed';
+
+export const SMARTS_NAME = "Smarts";
+export const SKILLS_SMARTS_ID = 'id-skills-smarts';
+
+export const SOCIAL_NAME = "Social";
+export const SKILLS_SOCIAL_ID = 'id-skills-social';
+
 /* Subcategories - Common Items */
 
 export const ARMOR_NAME = "Armor";
@@ -58,19 +72,13 @@ export const INFO_FEATURES_ID = 'id-info-features'
 export const MEGAFORM_TRAITS_NAME = "Megaform Traits";
 export const INFO_MEGAFORM_TRAITS_ID = 'id-info-megaform-traits'
 
-/* Subcategories - Skills */
+/* Subcategories - Pony Items */
 
-export const STRENGTH_NAME = "Strength";
-export const SKILLS_STRENGTH_ID = 'id-skills-strength';
+export const SPELLS_NAME = "Spells";
+export const INFO_SPELLS_ID = 'id-info-spells'
 
-export const SPEED_NAME = "Speed";
-export const SKILLS_SPEED_ID = 'id-skills-speed';
-
-export const SMARTS_NAME = "Smarts";
-export const SKILLS_SMARTS_ID = 'id-skills-smarts';
-
-export const SOCIAL_NAME = "Social";
-export const SKILLS_SOCIAL_ID = 'id-skills-social';
+export const MAGIC_BAUBLES_NAME = "Magic Baubles";
+export const INFO_MAGIC_BAUBLES_ID = 'id-info-magic-baubles'
 
 export const DEFAULTS = {
   categories: [ // The first row of buttons always visible on the HUD
@@ -249,6 +257,20 @@ export const DEFAULTS = {
           nestId: 'nest-id-info-megaform-traits',
           id: INFO_MEGAFORM_TRAITS_ID,
           name: MEGAFORM_TRAITS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-spells',
+          id: INFO_SPELLS_ID,
+          name: SPELLS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-spells',
+          id: INFO_MAGIC_BAUBLES_ID,
+          name: MAGIC_BAUBLES_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },
