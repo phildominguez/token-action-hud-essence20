@@ -1,5 +1,6 @@
 import { CoreActionHandler, CoreUtils } from './config.js'
 import {
+  INFO_ALT_MODES_ID,
   INFO_ARMOR_ID,
   INFO_BONDS_ID,
   INFO_CLASS_FEATURES_ID,
@@ -21,6 +22,8 @@ import {
   WEAPONS_ID,
 } from './defaults.js';
 
+const supportedActors = ['powerRanger', 'transformer'];
+
 export class ActionHandler extends CoreActionHandler {
   /** @override */
   async buildSystemActions(subcategoryIds) {
@@ -30,7 +33,7 @@ export class ActionHandler extends CoreActionHandler {
     const actor = this.actor;
     if (!actor) return;
 
-    if (actor.type !== 'powerRanger') {
+    if (!supportedActors.includes(actor.type)) {
       return;
     }
 
@@ -193,6 +196,8 @@ export class ActionHandler extends CoreActionHandler {
       this._getActionsForItemType('bond', actor, 'info'), { id: INFO_BONDS_ID, type: 'system' });
     this.addActionsToActionList(
       this._getActionsForItemType('hangUp', actor, 'info'), { id: INFO_HANG_UPS_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('altMode', actor, 'info'), { id: INFO_ALT_MODES_ID, type: 'system' });
   }
 
   _getActionsForItemType(type, actor, actionId = 'item') {

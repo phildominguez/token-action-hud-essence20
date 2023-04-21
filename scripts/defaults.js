@@ -1,9 +1,12 @@
 /**
- * Default categories and subcategories
+ * Top-level Categories
  */
 
 export const INITIATIVE_NAME = "Initiative";
 export const INITIATIVE_ID = 'id-initiative';
+
+export const SKILLS_NAME = "Skills";
+export const SKILLS_ID = 'id-skills'
 
 export const WEAPONS_NAME = "Weapons";
 export const WEAPONS_ID = 'id-weapons';
@@ -14,6 +17,8 @@ export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
 
 export const INFO_NAME = "Info";
 export const INFO_ID = 'id-info'
+
+/* Subcategories - Common Items */
 
 export const ARMOR_NAME = "Armor";
 export const INFO_ARMOR_ID = 'id-info-armor'
@@ -40,8 +45,12 @@ export const INFO_BONDS_ID = 'id-info-bonds'
 export const HANG_UPS_NAME = "Hang-Ups";
 export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
 
-export const SKILLS_NAME = "Skills";
-export const SKILLS_ID = 'id-skills'
+/* Subcategories - Transformers Items */
+
+export const ALT_MODES_NAME = "Alt Modes";
+export const INFO_ALT_MODES_ID = 'id-info-alt-modes'
+
+/* Subcategories - Skills */
 
 export const STRENGTH_NAME = "Strength";
 export const SKILLS_STRENGTH_ID = 'id-skills-strength';
@@ -211,6 +220,13 @@ export const DEFAULTS = {
           nestId: 'nest-id-info-hang-ups',
           id: INFO_HANG_UPS_ID,
           name: HANG_UPS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-alt-modes',
+          id: INFO_ALT_MODES_ID,
+          name: ALT_MODES_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },
