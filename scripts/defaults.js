@@ -80,6 +80,11 @@ export const INFO_SPELLS_ID = 'id-info-spells'
 export const MAGIC_BAUBLES_NAME = "Magic Baubles";
 export const INFO_MAGIC_BAUBLES_ID = 'id-info-magic-baubles'
 
+/* Subcategories - NPC Items */
+
+export const THREAT_POWERS_NAME = "Threat Powers";
+export const INFO_THREAT_POWERS_ID = 'id-info-threat-powers'
+
 export const DEFAULTS = {
   categories: [ // The first row of buttons always visible on the HUD
     {
@@ -271,6 +276,13 @@ export const DEFAULTS = {
           nestId: 'nest-id-info-spells',
           id: INFO_MAGIC_BAUBLES_ID,
           name: MAGIC_BAUBLES_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-threat-powers',
+          id: INFO_THREAT_POWERS_ID,
+          name: THREAT_POWERS_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },

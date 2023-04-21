@@ -15,6 +15,7 @@ import {
   INFO_PERKS_ID,
   INFO_POWERS_ID,
   INFO_SPELLS_ID,
+  INFO_THREAT_POWERS_ID,
   INFO_WEAPONS_ID,
   INITIATIVE_ID,
   POWERS_ID,
@@ -26,7 +27,7 @@ import {
   WEAPONS_ID,
 } from './defaults.js';
 
-const supportedActors = ['powerRanger', 'transformer', 'zord', 'megaformZord', 'pony'];
+const supportedActors = ['powerRanger', 'transformer', 'zord', 'megaformZord', 'pony', 'npc'];
 
 export class ActionHandler extends CoreActionHandler {
   /** @override */
@@ -215,6 +216,10 @@ export class ActionHandler extends CoreActionHandler {
       this._getActionsForItemType('spell', actor, 'info'), { id: INFO_SPELLS_ID, type: 'system' });
     this.addActionsToActionList(
       this._getActionsForItemType('magicBauble', actor, 'info'), { id: INFO_MAGIC_BAUBLES_ID, type: 'system' });
+
+    // Threat items
+    this.addActionsToActionList(
+      this._getActionsForItemType('threatPower', actor, 'info'), { id: INFO_THREAT_POWERS_ID, type: 'system' });
   }
 
   _getActionsForItemType(type, actor, actionId = 'item') {
