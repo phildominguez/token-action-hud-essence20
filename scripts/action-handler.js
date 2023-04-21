@@ -27,7 +27,16 @@ import {
   WEAPONS_ID,
 } from './defaults.js';
 
-const supportedActors = ['powerRanger', 'transformer', 'zord', 'megaformZord', 'pony', 'npc'];
+const supportedActors = [
+  'giJoe',
+  'megaformZord',
+  'npc',
+  'pony',
+  'powerRanger',
+  'transformer',
+  'vehicle',
+  'zord',
+];
 
 export class ActionHandler extends CoreActionHandler {
   /** @override */
