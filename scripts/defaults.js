@@ -2,45 +2,44 @@
  * Default categories and subcategories
  */
 
-export const INITIATIVE_ID = 'id-initiative';
 export const INITIATIVE_NAME = "Initiative";
+export const INITIATIVE_ID = 'id-initiative';
 
-export const WEAPONS_ID = 'id-weapons';
 export const WEAPONS_NAME = "Weapons";
+export const WEAPONS_ID = 'id-weapons';
 export const INFO_WEAPONS_ID = 'id-info-weapons'
 
-export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
 export const CLASS_FEATURES_NAME = "Class Features";
+export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
 
-export const INFO_ARMOR_ID = 'id-info-armor'
+export const INFO_NAME = "Info";
+export const INFO_ID = 'id-info'
+
 export const ARMOR_NAME = "Armor";
+export const INFO_ARMOR_ID = 'id-info-armor'
 
-export const INFO_CONTACTS_ID = 'id-info-contacts'
 export const CONTACTS_NAME = "Contacts";
+export const INFO_CONTACTS_ID = 'id-info-contacts'
 
-export const INFO_GEAR_ID = 'id-info-gear'
 export const GEAR_NAME = "Gear";
+export const INFO_GEAR_ID = 'id-info-gear'
 
+export const POWERS_NAME = "Powers";
 export const POWERS_ID = 'id-powers';
 export const INFO_POWERS_ID = 'id-info-powers'
-export const POWERS_NAME = "Powers";
 
-export const INFO_PERKS_ID = 'id-info-perks'
 export const PERKS_NAME = "Perks";
+export const INFO_PERKS_ID = 'id-info-perks'
 
-export const INFO_ORIGINS_ID = 'id-info-origins'
 export const ORIGINS_NAME = "Origins";
+export const INFO_ORIGINS_ID = 'id-info-origins'
 
-export const INFO_BONDS_ID = 'id-info-bonds'
 export const BONDS_NAME = "Bonds";
+export const INFO_BONDS_ID = 'id-info-bonds'
 
-export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
 export const HANG_UPS_NAME = "Hang-Ups";
+export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
 
-export const INFO_ID = 'id-info'
-export const INFO_NAME = "Info";
-
-export const ROLL_NAME = "Roll";
 
 export const DEFAULTS = {
   categories: [ // The first row of buttons always visible on the HUD
@@ -159,7 +158,7 @@ export const DEFAULTS = {
           hasDerivedSubcategories: false,
         },
         {
-          nestId: 'nest-id-info-bonds',
+          nestId: 'nest-id-info-hang-ups',
           id: INFO_HANG_UPS_ID,
           name: HANG_UPS_NAME,
           type: 'system',

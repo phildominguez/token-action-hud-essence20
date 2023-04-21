@@ -1,19 +1,19 @@
 import { CoreActionHandler, CoreUtils } from './config.js'
 import {
+  INFO_ARMOR_ID,
+  INFO_BONDS_ID,
+  INFO_CLASS_FEATURES_ID,
+  INFO_CONTACTS_ID,
+  INFO_GEAR_ID,
+  INFO_HANG_UPS_ID,
   INFO_ID,
+  INFO_ORIGINS_ID,
+  INFO_PERKS_ID,
+  INFO_POWERS_ID,
+  INFO_WEAPONS_ID,
   INITIATIVE_ID,
   POWERS_ID,
   WEAPONS_ID,
-  INFO_CLASS_FEATURES_ID,
-  INFO_WEAPONS_ID,
-  INFO_ARMOR_ID,
-  INFO_CONTACTS_ID,
-  INFO_GEAR_ID,
-  INFO_POWERS_ID,
-  INFO_PERKS_ID,
-  INFO_ORIGINS_ID,
-  INFO_BONDS_ID,
-  INFO_HANG_UPS_ID,
 } from './defaults.js';
 
 export class ActionHandler extends CoreActionHandler {
@@ -38,7 +38,7 @@ export class ActionHandler extends CoreActionHandler {
   _addInitiativeActions(actor, tokenId, parent) {
     const actions = [{
       id: 'id-initiative-action',
-      name: 'Initiative',
+      name: "Roll",
       encodedValue: 'initiative',
     }];
     this.addActionsToActionList(actions, parent);
