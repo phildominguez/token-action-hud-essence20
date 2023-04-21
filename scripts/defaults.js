@@ -40,6 +40,20 @@ export const INFO_BONDS_ID = 'id-info-bonds'
 export const HANG_UPS_NAME = "Hang-Ups";
 export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
 
+export const SKILLS_NAME = "Skills";
+export const SKILLS_ID = 'id-skills'
+
+export const STRENGTH_NAME = "Strength";
+export const SKILLS_STRENGTH_ID = 'id-skills-strength';
+
+export const SPEED_NAME = "Speed";
+export const SKILLS_SPEED_ID = 'id-skills-speed';
+
+export const SMARTS_NAME = "Smarts";
+export const SKILLS_SMARTS_ID = 'id-skills-smarts';
+
+export const SOCIAL_NAME = "Social";
+export const SKILLS_SOCIAL_ID = 'id-skills-social';
 
 export const DEFAULTS = {
   categories: [ // The first row of buttons always visible on the HUD
@@ -53,6 +67,42 @@ export const DEFAULTS = {
           nestId: 'nest-id-initiative',
           id: INITIATIVE_ID,
           name: "",
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+      ],
+    },
+    {
+      nestId: SKILLS_ID,
+      id: SKILLS_ID,
+      name: SKILLS_NAME,
+      type: 'system',
+      subcategories: [
+        {
+          nestId: 'nest-id-strength',
+          id: SKILLS_STRENGTH_ID,
+          name: STRENGTH_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-strength',
+          id: SKILLS_SPEED_ID,
+          name: SPEED_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-smarts',
+          id: SKILLS_SMARTS_ID,
+          name: SMARTS_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-social',
+          id: SKILLS_SOCIAL_ID,
+          name: SOCIAL_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },
