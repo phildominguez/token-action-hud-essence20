@@ -5,10 +5,12 @@ import {
   INFO_BONDS_ID,
   INFO_CLASS_FEATURES_ID,
   INFO_CONTACTS_ID,
+  INFO_FEATURES_ID,
   INFO_GEAR_ID,
   INFO_HANG_UPS_ID,
   INFO_ID,
   INFO_ORIGINS_ID,
+  INFO_MEGAFORM_TRAITS_ID,
   INFO_PERKS_ID,
   INFO_POWERS_ID,
   INFO_WEAPONS_ID,
@@ -22,7 +24,7 @@ import {
   WEAPONS_ID,
 } from './defaults.js';
 
-const supportedActors = ['powerRanger', 'transformer'];
+const supportedActors = ['powerRanger', 'transformer', 'zord'];
 
 export class ActionHandler extends CoreActionHandler {
   /** @override */
@@ -198,6 +200,10 @@ export class ActionHandler extends CoreActionHandler {
       this._getActionsForItemType('hangUp', actor, 'info'), { id: INFO_HANG_UPS_ID, type: 'system' });
     this.addActionsToActionList(
       this._getActionsForItemType('altMode', actor, 'info'), { id: INFO_ALT_MODES_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('feature', actor, 'info'), { id: INFO_FEATURES_ID, type: 'system' });
+    this.addActionsToActionList(
+      this._getActionsForItemType('megaformTrait', actor, 'info'), { id: INFO_MEGAFORM_TRAITS_ID, type: 'system' });
   }
 
   _getActionsForItemType(type, actor, actionId = 'item') {

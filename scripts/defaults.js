@@ -50,6 +50,14 @@ export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
 export const ALT_MODES_NAME = "Alt Modes";
 export const INFO_ALT_MODES_ID = 'id-info-alt-modes'
 
+/* Subcategories - Zord Items */
+
+export const FEATURES_NAME = "Features";
+export const INFO_FEATURES_ID = 'id-info-features'
+
+export const MEGAFORM_TRAITS_NAME = "Megaform Traits";
+export const INFO_MEGAFORM_TRAITS_ID = 'id-info-megaform-traits'
+
 /* Subcategories - Skills */
 
 export const STRENGTH_NAME = "Strength";
@@ -227,6 +235,20 @@ export const DEFAULTS = {
           nestId: 'nest-id-info-alt-modes',
           id: INFO_ALT_MODES_ID,
           name: ALT_MODES_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-features',
+          id: INFO_FEATURES_ID,
+          name: FEATURES_NAME,
+          type: 'system',
+          hasDerivedSubcategories: false,
+        },
+        {
+          nestId: 'nest-id-info-megaform-traits',
+          id: INFO_MEGAFORM_TRAITS_ID,
+          name: MEGAFORM_TRAITS_NAME,
           type: 'system',
           hasDerivedSubcategories: false,
         },
