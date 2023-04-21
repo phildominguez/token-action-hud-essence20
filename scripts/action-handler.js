@@ -1,4 +1,5 @@
 import { CoreActionHandler, CoreUtils } from './config.js'
+import { skillActions, supportedActors } from './constants.js'
 import {
   INFO_ALT_MODES_ID,
   INFO_ARMOR_ID,
@@ -26,17 +27,6 @@ import {
   SKILLS_STRENGTH_ID,
   WEAPONS_ID,
 } from './defaults.js';
-
-const supportedActors = [
-  'giJoe',
-  'megaformZord',
-  'npc',
-  'pony',
-  'powerRanger',
-  'transformer',
-  'vehicle',
-  'zord',
-];
 
 export class ActionHandler extends CoreActionHandler {
   /** @override */
@@ -68,117 +58,10 @@ export class ActionHandler extends CoreActionHandler {
   }
 
   _addSkillsActions(actor, tokenId, parent) {
-    const strengthActions = [
-      {
-        id: 'id-athletics-action',
-        name: "Athletics",
-        encodedValue: 'skill|athletics',
-      },
-      {
-        id: 'id-brawn-action',
-        name: "Brawn",
-        encodedValue: 'skill|brawn',
-      },
-      {
-        id: 'id-intimidation-action',
-        name: "Intimidation",
-        encodedValue: 'skill|intimidation',
-      },
-      {
-        id: 'id-might-action',
-        name: "Might",
-        encodedValue: 'skill|might',
-      },
-    ];
-
-    const speedActions = [
-      {
-        id: 'id-acrobatics-action',
-        name: "Acrobatics",
-        encodedValue: 'skill|acrobatics',
-      },
-      {
-        id: 'id-driving-action',
-        name: "Driving",
-        encodedValue: 'skill|driving',
-      },
-      {
-        id: 'id-finesse-action',
-        name: "Finesse",
-        encodedValue: 'skill|finesse',
-      },
-      {
-        id: 'id-infiltration-action',
-        name: "Infiltration",
-        encodedValue: 'skill|infiltration',
-      },
-      {
-        id: 'id-targeting-action',
-        name: "Targeting",
-        encodedValue: 'skill|targeting',
-      },
-    ];
-
-    const smartsActions = [
-      {
-        id: 'id-alertness-action',
-        name: "Alertness",
-        encodedValue: 'skill|alertness',
-      },
-      {
-        id: 'id-culture-action',
-        name: "Culture",
-        encodedValue: 'skill|culture',
-      },
-      {
-        id: 'id-science-action',
-        name: "Science",
-        encodedValue: 'skill|science',
-      },
-      {
-        id: 'id-survival-action',
-        name: "Survival",
-        encodedValue: 'skill|survival',
-      },
-      {
-        id: 'id-technology-action',
-        name: "Technology",
-        encodedValue: 'skill|technology',
-      },
-    ];
-
-    const socialActions = [
-      {
-        id: 'id-animal-handling-action',
-        name: "Animal Handling",
-        encodedValue: 'skill|animal-handling',
-      },
-      {
-        id: 'id-deception-action',
-        name: "Deception",
-        encodedValue: 'skill|deception',
-      },
-      {
-        id: 'id-performance-action',
-        name: "Performance",
-        encodedValue: 'skill|performance',
-      },
-      {
-        id: 'id-persuasion-action',
-        name: "Persuasion",
-        encodedValue: 'skill|persuasion',
-      },
-      {
-        id: 'id-streetwise-action',
-        name: "Streetwise",
-        encodedValue: 'skill|streetwise',
-      },
-    ];
-
-    this.addActionsToActionList(strengthActions, { id: SKILLS_STRENGTH_ID, type: 'system' });
-    this.addActionsToActionList(speedActions, { id: SKILLS_SPEED_ID, type: 'system' });
-    this.addActionsToActionList(smartsActions, { id: SKILLS_SMARTS_ID, type: 'system' });
-    this.addActionsToActionList(socialActions, { id: SKILLS_SOCIAL_ID, type: 'system' });
+    this.addActionsToActionList(skillActions.strength, { id: SKILLS_STRENGTH_ID, type: 'system' });
+    this.addActionsToActionList(skillActions.speed, { id: SKILLS_SPEED_ID, type: 'system' });
+    this.addActionsToActionList(skillActions.smarts, { id: SKILLS_SMARTS_ID, type: 'system' });
+    this.addActionsToActionList(skillActions.social, { id: SKILLS_SOCIAL_ID, type: 'system' });
   }
 
   _addWeaponsActions(actor, tokenId, parent) {
