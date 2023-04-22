@@ -6,17 +6,17 @@ export const INITIATIVE_NAME = "Initiative";
 export const INITIATIVE_ID = 'id-initiative';
 
 export const SKILLS_NAME = "Skills";
-export const SKILLS_ID = 'id-skills'
+export const SKILLS_ID = 'id-skills';
 
 export const WEAPONS_NAME = "Weapons";
 export const WEAPONS_ID = 'id-weapons';
-export const INFO_WEAPONS_ID = 'id-info-weapons'
+export const INFO_WEAPONS_ID = 'id-info-weapons';
 
 export const CLASS_FEATURES_NAME = "Class Features";
-export const INFO_CLASS_FEATURES_ID = 'id-info-class-features'
+export const INFO_CLASS_FEATURES_ID = 'id-info-class-features';
 
 export const INFO_NAME = "Info";
-export const INFO_ID = 'id-info'
+export const INFO_ID = 'id-info';
 
 /* Subcategories - Skills */
 
@@ -35,55 +35,55 @@ export const SKILLS_SOCIAL_ID = 'id-skills-social';
 /* Subcategories - Common Items */
 
 export const ARMOR_NAME = "Armor";
-export const INFO_ARMOR_ID = 'id-info-armor'
+export const INFO_ARMOR_ID = 'id-info-armor';
 
 export const CONTACTS_NAME = "Contacts";
-export const INFO_CONTACTS_ID = 'id-info-contacts'
+export const INFO_CONTACTS_ID = 'id-info-contacts';
 
 export const GEAR_NAME = "Gear";
-export const INFO_GEAR_ID = 'id-info-gear'
+export const INFO_GEAR_ID = 'id-info-gear';
 
 export const POWERS_NAME = "Powers";
 export const POWERS_ID = 'id-powers';
-export const INFO_POWERS_ID = 'id-info-powers'
+export const INFO_POWERS_ID = 'id-info-powers';
 
 export const PERKS_NAME = "Perks";
-export const INFO_PERKS_ID = 'id-info-perks'
+export const INFO_PERKS_ID = 'id-info-perks';
 
 export const ORIGINS_NAME = "Origins";
-export const INFO_ORIGINS_ID = 'id-info-origins'
+export const INFO_ORIGINS_ID = 'id-info-origins';
 
 export const BONDS_NAME = "Bonds";
-export const INFO_BONDS_ID = 'id-info-bonds'
+export const INFO_BONDS_ID = 'id-info-bonds';
 
 export const HANG_UPS_NAME = "Hang-Ups";
-export const INFO_HANG_UPS_ID = 'id-info-hang-ups'
+export const INFO_HANG_UPS_ID = 'id-info-hang-ups';
 
 /* Subcategories - Transformers Items */
 
 export const ALT_MODES_NAME = "Alt Modes";
-export const INFO_ALT_MODES_ID = 'id-info-alt-modes'
+export const INFO_ALT_MODES_ID = 'id-info-alt-modes';
 
 /* Subcategories - Zord Items */
 
 export const FEATURES_NAME = "Features";
-export const INFO_FEATURES_ID = 'id-info-features'
+export const INFO_FEATURES_ID = 'id-info-features';
 
 export const MEGAFORM_TRAITS_NAME = "Megaform Traits";
-export const INFO_MEGAFORM_TRAITS_ID = 'id-info-megaform-traits'
+export const INFO_MEGAFORM_TRAITS_ID = 'id-info-megaform-traits';
 
 /* Subcategories - Pony Items */
 
 export const SPELLS_NAME = "Spells";
-export const INFO_SPELLS_ID = 'id-info-spells'
+export const INFO_SPELLS_ID = 'id-info-spells';
 
 export const MAGIC_BAUBLES_NAME = "Magic Baubles";
-export const INFO_MAGIC_BAUBLES_ID = 'id-info-magic-baubles'
+export const INFO_MAGIC_BAUBLES_ID = 'id-info-magic-baubles';
 
 /* Subcategories - NPC Items */
 
 export const THREAT_POWERS_NAME = "Threat Powers";
-export const INFO_THREAT_POWERS_ID = 'id-info-threat-powers'
+export const INFO_THREAT_POWERS_ID = 'id-info-threat-powers';
 
 export const DEFAULTS = {
   categories: [ // The first row of buttons always visible on the HUD

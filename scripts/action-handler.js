@@ -41,77 +41,81 @@ export class ActionHandler extends CoreActionHandler {
       return;
     }
 
-    this._addInitiativeActions(actor, tokenId, { id: INITIATIVE_ID, type: 'system' })
-    this._addSkillsActions(actor, tokenId, { id: SKILLS_ID, type: 'system' })
-    this._addWeaponsActions(actor, tokenId, { id: WEAPONS_ID, type: 'system' })
-    this._addPowersActions(actor, tokenId, { id: POWERS_ID, type: 'system' })
-    this._addInfoActions(actor, tokenId, { id: INFO_ID, type: 'system' })
+    this._addInitiativeActions();
+    this._addSkillsActions();
+    this._addWeaponsActions(actor);
+    this._addPowersActions(actor);
+    this._addInfoActions(actor);
   }
 
-  _addInitiativeActions(actor, tokenId, parent) {
+  _addActionHelper(actions, parentId) {
+    this.addActionsToActionList(actions, { id: parentId, type: 'system' });
+  }
+
+  _addInitiativeActions() {
     const actions = [{
       id: 'id-initiative-action',
       name: "Roll",
       encodedValue: 'initiative',
     }];
-    this.addActionsToActionList(actions, parent);
+    this._addActionHelper(actions, INITIATIVE_ID);
   }
 
-  _addSkillsActions(actor, tokenId, parent) {
-    this.addActionsToActionList(skillActions.strength, { id: SKILLS_STRENGTH_ID, type: 'system' });
-    this.addActionsToActionList(skillActions.speed, { id: SKILLS_SPEED_ID, type: 'system' });
-    this.addActionsToActionList(skillActions.smarts, { id: SKILLS_SMARTS_ID, type: 'system' });
-    this.addActionsToActionList(skillActions.social, { id: SKILLS_SOCIAL_ID, type: 'system' });
+  _addSkillsActions() {
+    this._addActionHelper(skillActions.strength, SKILLS_STRENGTH_ID);
+    this._addActionHelper(skillActions.speed, SKILLS_SPEED_ID);
+    this._addActionHelper(skillActions.smarts, SKILLS_SMARTS_ID);
+    this._addActionHelper(skillActions.social, SKILLS_SOCIAL_ID);
   }
 
-  _addWeaponsActions(actor, tokenId, parent) {
-    this.addActionsToActionList(this._getActionsForItemType('weapon', actor), parent);
+  _addWeaponsActions(actor) {
+    this._addActionHelper(this._getActionsForItemType('weapon', actor), WEAPONS_ID);
   }
 
-  _addPowersActions(actor, tokenId, parent) {
-    this.addActionsToActionList(this._getActionsForItemType('power', actor), parent);
+  _addPowersActions(actor) {
+    this._addActionHelper(this._getActionsForItemType('power', actor), POWERS_ID);
   }
 
-  _addInfoActions(actor, tokenId, parent) {
+  _addInfoActions(actor) {
     // Common items
-    this.addActionsToActionList(
-      this._getActionsForItemType('classFeature', actor, 'info'), { id: INFO_CLASS_FEATURES_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('weapon', actor, 'info'), { id: INFO_WEAPONS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('armor', actor, 'info'), { id: INFO_ARMOR_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('contact', actor, 'info'), { id: INFO_CONTACTS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('gear', actor, 'info'), { id: INFO_GEAR_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('power', actor, 'info'), { id: INFO_POWERS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('perk', actor, 'info'), { id: INFO_PERKS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('origin', actor, 'info'), { id: INFO_ORIGINS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('bond', actor, 'info'), { id: INFO_BONDS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('hangUp', actor, 'info'), { id: INFO_HANG_UPS_ID, type: 'system' });
+    this._addActionHelper(
+      this._getActionsForItemType('classFeature', actor, 'info'), INFO_CLASS_FEATURES_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('weapon', actor, 'info'), INFO_WEAPONS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('armor', actor, 'info'), INFO_ARMOR_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('contact', actor, 'info'), INFO_CONTACTS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('gear', actor, 'info'), INFO_GEAR_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('power', actor, 'info'), INFO_POWERS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('perk', actor, 'info'), INFO_PERKS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('origin', actor, 'info'), INFO_ORIGINS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('bond', actor, 'info'), INFO_BONDS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('hangUp', actor, 'info'), INFO_HANG_UPS_ID);
 
     // Transformer items
-    this.addActionsToActionList(
-      this._getActionsForItemType('altMode', actor, 'info'), { id: INFO_ALT_MODES_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('feature', actor, 'info'), { id: INFO_FEATURES_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('megaformTrait', actor, 'info'), { id: INFO_MEGAFORM_TRAITS_ID, type: 'system' });
+    this._addActionHelper(
+      this._getActionsForItemType('altMode', actor, 'info'), INFO_ALT_MODES_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('feature', actor, 'info'), INFO_FEATURES_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('megaformTrait', actor, 'info'), INFO_MEGAFORM_TRAITS_ID);
 
     // Pony items
-    this.addActionsToActionList(
-      this._getActionsForItemType('spell', actor, 'info'), { id: INFO_SPELLS_ID, type: 'system' });
-    this.addActionsToActionList(
-      this._getActionsForItemType('magicBauble', actor, 'info'), { id: INFO_MAGIC_BAUBLES_ID, type: 'system' });
+    this._addActionHelper(
+      this._getActionsForItemType('spell', actor, 'info'), INFO_SPELLS_ID);
+    this._addActionHelper(
+      this._getActionsForItemType('magicBauble', actor, 'info'), INFO_MAGIC_BAUBLES_ID);
 
     // Threat items
-    this.addActionsToActionList(
-      this._getActionsForItemType('threatPower', actor, 'info'), { id: INFO_THREAT_POWERS_ID, type: 'system' });
+    this._addActionHelper(
+      this._getActionsForItemType('threatPower', actor, 'info'), INFO_THREAT_POWERS_ID);
   }
 
   _getActionsForItemType(type, actor, actionId = 'item') {
