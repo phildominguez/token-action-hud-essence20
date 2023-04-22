@@ -9,6 +9,13 @@ export class RollHandler extends CoreRollHandler {
     const macroType = payload[0];
     const actionId = payload[1];
 
+    if (this.isRenderItem()) {
+      if (macroType == MACRO_TYPES.info) {
+        this.doRenderItem(this.actor, actionId);
+      }
+      return;
+    }
+
     switch (macroType) {
       case MACRO_TYPES.initiative:
         this.actor.rollInitiative({ createCombatants: true });
