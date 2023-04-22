@@ -1,4 +1,5 @@
-import { CoreRollHandler, CoreUtils } from './config.js'
+import { CoreRollHandler } from './config.js'
+import { MACRO_TYPES } from './constants.js'
 
 export class RollHandler extends CoreRollHandler {
   /** @override */
@@ -9,24 +10,24 @@ export class RollHandler extends CoreRollHandler {
     const actionId = payload[1];
 
     switch (macroType) {
-      case 'initiative':
+      case MACRO_TYPES.initiative:
         this.actor.rollInitiative({ createCombatants: true });
         break;
-      case 'skill':
+      case MACRO_TYPES.skill:
         this.actor.rollSkill({ skill: actionId });
         break;
-      case 'item':
-        this.rollItemMacro(event, actionId);
+      case MACRO_TYPES.item:
+        this.rollItemMacro(actionId);
         break;
-      case 'info':
-        this.rollItemMacro(event, actionId, { rollType: 'info' });
+      case MACRO_TYPES.info:
+        this.rollItemMacro(actionId, { rollType: 'info' });
         break;
       default:
         break;
     }
   }
 
-  rollItemMacro(event, actionId, dataset = {}) {
+  rollItemMacro(actionId, dataset = {}) {
     const item = this.actor.items.find((i) => i.id === actionId);
 
     if (item) {

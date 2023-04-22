@@ -1,5 +1,9 @@
-import { CoreActionHandler, CoreUtils } from './config.js'
-import { SKILL_ACTIONS, SUPPORTED_ACTORS } from './constants.js'
+import { CoreActionHandler } from './config.js'
+import {
+  MACRO_TYPES,
+  SKILL_ACTIONS,
+  SUPPORTED_ACTORS
+} from './constants.js'
 import {
   INITIATIVE_ID,
   ITEMS,
@@ -33,7 +37,7 @@ export class ActionHandler extends CoreActionHandler {
     const actions = [{
       id: 'id-initiative-action',
       name: "Roll",
-      encodedValue: 'initiative',
+      encodedValue: MACRO_TYPES.initiative,
     }];
     this._addActionHelper(actions, INITIATIVE_ID);
   }
@@ -65,7 +69,7 @@ export class ActionHandler extends CoreActionHandler {
     }
   }
 
-  _getActionsForItemType(type, actor, actionId = 'item') {
+  _getActionsForItemType(type, actor, actionId = MACRO_TYPES.item) {
     return actor.items.filter((i) => !!i && i.type == type)
       .map((i) => {
         let encodedValue = [actionId, i.id].join(this.delimiter);

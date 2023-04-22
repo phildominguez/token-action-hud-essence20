@@ -18,6 +18,16 @@ export const CORE_MODULE = {
 export const REQUIRED_CORE_MODULE_VERSION = '1.3';
 
 /**
+ * Macro types used in encoded strings and RollHandler
+ */
+export const MACRO_TYPES = {
+  info: 'info',
+  initiative: 'initiative',
+  item: 'item',
+  skill: 'skill',
+}
+
+/**
  * Actors types supported by this module
  */
 export const SUPPORTED_ACTORS = [
