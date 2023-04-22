@@ -20,7 +20,7 @@ export const REQUIRED_CORE_MODULE_VERSION = '1.3';
 /**
  * Actors types supported by this module
  */
-export const supportedActors = [
+export const SUPPORTED_ACTORS = [
   'giJoe',
   'megaformZord',
   'npc',
@@ -34,7 +34,7 @@ export const supportedActors = [
 /**
  * Skill actions
  */
-export const skillActions = {
+export const SKILL_ACTIONS = {
   strength: [
     {
       id: 'id-athletics-action',

@@ -1,12 +1,9 @@
 import { CoreActionHandler, CoreUtils } from './config.js'
-import { skillActions, supportedActors } from './constants.js'
+import { SKILL_ACTIONS, SUPPORTED_ACTORS } from './constants.js'
 import {
   INITIATIVE_ID,
   ITEMS,
-  SKILLS_SMARTS_ID,
-  SKILLS_SOCIAL_ID,
-  SKILLS_SPEED_ID,
-  SKILLS_STRENGTH_ID,
+  SKILLS,
 } from './defaults.js';
 
 export class ActionHandler extends CoreActionHandler {
@@ -14,11 +11,10 @@ export class ActionHandler extends CoreActionHandler {
   async buildSystemActions(subcategoryIds) {
     const token = this.token;
     if (!token) return;
-    const tokenId = token.id;
     const actor = this.actor;
     if (!actor) return;
 
-    if (!supportedActors.includes(actor.type)) {
+    if (!SUPPORTED_ACTORS.includes(actor.type)) {
       return;
     }
 
@@ -43,10 +39,9 @@ export class ActionHandler extends CoreActionHandler {
   }
 
   _addSkillsActions() {
-    this._addActionHelper(skillActions.strength, SKILLS_STRENGTH_ID);
-    this._addActionHelper(skillActions.speed, SKILLS_SPEED_ID);
-    this._addActionHelper(skillActions.smarts, SKILLS_SMARTS_ID);
-    this._addActionHelper(skillActions.social, SKILLS_SOCIAL_ID);
+    for (let [essence, actions] of Object.entries(SKILL_ACTIONS)) {
+      this._addActionHelper(actions, SKILLS[essence].id);
+    }
   }
 
   _addWeaponsActions(actor) {

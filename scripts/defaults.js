@@ -9,17 +9,24 @@ export const INFO_ID = 'id-info';
 
 /* Skills */
 
-export const STRENGTH_NAME = "Strength";
-export const SKILLS_STRENGTH_ID = 'id-skills-strength';
-
-export const SPEED_NAME = "Speed";
-export const SKILLS_SPEED_ID = 'id-skills-speed';
-
-export const SMARTS_NAME = "Smarts";
-export const SKILLS_SMARTS_ID = 'id-skills-smarts';
-
-export const SOCIAL_NAME = "Social";
-export const SKILLS_SOCIAL_ID = 'id-skills-social';
+export const SKILLS = {
+  strength: {
+    name: "Strength",
+    id: "id-skills-strength",
+  },
+  speed: {
+    name: "Speed",
+    id: "id-skills-speed",
+  },
+  smarts: {
+    name: "Smarts",
+    id: "id-skills-smarts",
+  },
+  social: {
+    name: "Social",
+    id: "id-skills-social",
+  },
+}
 
 /* Subcategories - Items */
 
@@ -148,26 +155,26 @@ export const DEFAULTS = {
         {
           type: 'system',
           nestId: 'nest-id-strength',
-          id: SKILLS_STRENGTH_ID,
-          name: STRENGTH_NAME,
+          id: SKILLS.strength.id,
+          name: SKILLS.strength.name,
         },
         {
           type: 'system',
-          nestId: 'nest-id-strength',
-          id: SKILLS_SPEED_ID,
-          name: SPEED_NAME,
+          nestId: 'nest-id-speed',
+          id: SKILLS.speed.id,
+          name: SKILLS.speed.name,
         },
         {
           type: 'system',
           nestId: 'nest-id-smarts',
-          id: SKILLS_SMARTS_ID,
-          name: SMARTS_NAME,
+          id: SKILLS.smarts.id,
+          name: SKILLS.smarts.name,
         },
         {
           type: 'system',
           nestId: 'nest-id-social',
-          id: SKILLS_SOCIAL_ID,
-          name: SOCIAL_NAME,
+          id: SKILLS.social.id,
+          name: SKILLS.social.name,
         },
       ],
     },
