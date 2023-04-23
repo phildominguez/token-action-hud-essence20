@@ -39,6 +39,7 @@ export const ITEMS = {
   },
   weapons: {
     name: "Weapons",
+    id: 'id-weapons',
     infoId: 'id-info-weapons',
     type: 'weapon',
     nestId: 'nest-id-info-weapons',
