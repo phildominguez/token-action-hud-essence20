@@ -7,6 +7,7 @@ For the currently selected token, you can:
 - Roll skills
 - Roll weapons
 - Output info for any owned item to chat
+- Right click an item's button in the Info category to open its sheet
 
 ## Installation
 In Foundry's Install Module menu, entering the following Manifest URL:
