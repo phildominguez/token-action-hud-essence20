@@ -1,4 +1,4 @@
-import { CoreSystemManager } from './config.js'
+import { CoreSystemManager } from './config.js';
 import { ActionHandler as ActionHandler } from "./action-handler.js";
 import { RollHandler as Core } from "./roll-handler.js";
 import { DEFAULTS } from './defaults.js';
@@ -6,7 +6,7 @@ import { DEFAULTS } from './defaults.js';
 export class SystemManager extends CoreSystemManager {
   /** @override */
   doGetActionHandler() {
-    return new ActionHandler()
+    return new ActionHandler();
   }
 
   /** @override */
