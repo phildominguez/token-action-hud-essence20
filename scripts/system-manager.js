@@ -1,22 +1,12 @@
-import { CoreSystemManager, CoreCategoryManager, CoreUtils } from './config.js'
+import { CoreSystemManager } from './config.js'
 import { ActionHandler as ActionHandler } from "./action-handler.js";
 import { RollHandler as Core } from "./roll-handler.js";
 import { DEFAULTS } from './defaults.js';
 
 export class SystemManager extends CoreSystemManager {
-  constructor(appName) {
-    super(appName);
-  }
-
   /** @override */
-  doGetCategoryManager () {
-    return new CoreCategoryManager()
-  }
-
-  /** @override */
-  doGetActionHandler(categoryManager) {
-    let actionHandler = new ActionHandler(categoryManager);
-    return actionHandler;
+  doGetActionHandler() {
+    return new ActionHandler()
   }
 
   /** @override */
@@ -31,7 +21,7 @@ export class SystemManager extends CoreSystemManager {
     return new Core();
   }
 
-  async doRegisterDefaultFlags () {
+  async doRegisterDefaultFlags() {
     return DEFAULTS;
   }
 }

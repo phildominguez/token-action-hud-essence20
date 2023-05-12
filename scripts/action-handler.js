@@ -30,7 +30,7 @@ export class ActionHandler extends CoreActionHandler {
   }
 
   _addActionHelper(actions, parentId) {
-    this.addActionsToActionList(actions, { id: parentId, type: 'system' });
+    this.addActions(actions, { id: parentId, type: 'system' });
   }
 
   _addInitiativeActions() {

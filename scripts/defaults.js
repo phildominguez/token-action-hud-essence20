@@ -132,13 +132,13 @@ export const ITEMS = {
 };
 
 export const DEFAULTS = {
-  categories: [ // The first row of buttons always visible on the HUD
+  layout: [ // The first row of buttons always visible on the HUD
     {
       type: 'system',
       nestId: INITIATIVE_ID,
       id: INITIATIVE_ID,
       name: INITIATIVE_NAME,
-      subcategories: [ // The action groups visible when a Category is hovered/clicked
+      groups: [ // The action groups visible when a Category is hovered/clicked
         {
           type: 'system',
           nestId: 'nest-id-initiative',
@@ -152,7 +152,7 @@ export const DEFAULTS = {
       nestId: SKILLS_ID,
       id: SKILLS_ID,
       name: SKILLS_NAME,
-      subcategories: [
+      groups: [
         {
           type: 'system',
           nestId: 'nest-id-strength',
@@ -184,7 +184,7 @@ export const DEFAULTS = {
       nestId: ITEMS.weapons.id,
       id: ITEMS.weapons.id,
       name: ITEMS.weapons.name,
-      subcategories: [
+      groups: [
         {
           type: 'system',
           nestId: 'nest-id-weapons',
@@ -198,7 +198,7 @@ export const DEFAULTS = {
       nestId: ITEMS.powers.id,
       id: ITEMS.powers.id,
       name: ITEMS.powers.name,
-      subcategories: [
+      groups: [
         {
           type: 'system',
           nestId: 'nest-id-powers',
@@ -211,7 +211,7 @@ export const DEFAULTS = {
       nestId: INFO_ID,
       id: INFO_ID,
       name: INFO_NAME,
-      subcategories: [
+      groups: [
         {
           type: 'system',
           nestId: ITEMS.classFeatures.nestId,
