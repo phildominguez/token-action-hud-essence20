@@ -1,27 +1,33 @@
-import { CoreSystemManager } from './config.js';
 import { ActionHandler as ActionHandler } from "./action-handler.js";
 import { RollHandler as Core } from "./roll-handler.js";
 import { DEFAULTS } from './defaults.js';
 
-export class SystemManager extends CoreSystemManager {
-  /** @override */
-  doGetActionHandler() {
-    return new ActionHandler();
-  }
+export let SystemManager = null
 
-  /** @override */
-  getAvailableRollHandlers() {
-    let choices = { core: "Core Essence20" };
+Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
+  SystemManager = class SystemManager extends coreModule.api.SystemManager {
+    /** @override */
+    doGetCategoryManager () {
+      return new CoreCategoryManager()
+    }
 
-    return choices;
-  }
+    /** @override */
+    doGetActionHandler(categoryManager) {
+      return new ActionHandler(categoryManager);
+    }
 
-  /** @override */
-  doGetRollHandler(handlerId) {
-    return new Core();
-  }
+    /** @override */
+    getAvailableRollHandlers() {
+      return { core: "Core Essence20" };
+    }
 
-  async doRegisterDefaultFlags() {
-    return DEFAULTS;
+    /** @override */
+    doGetRollHandler(handlerId) {
+      return new Core();
+    }
+
+    async doRegisterDefaultFlags () {
+      return DEFAULTS;
+    }
   }
-}
+})

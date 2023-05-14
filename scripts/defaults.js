@@ -28,106 +28,90 @@ export const SKILLS = {
   },
 }
 
-/* Subcategories - Items */
+/* Groups - Items */
 
 export const ITEMS = {
   classFeatures: {
     name: "Class Features",
     infoId: 'id-info-class-features',
     type: 'classFeature',
-    nestId: 'nest-id-info-class-features',
   },
   weapons: {
     name: "Weapons",
     id: 'id-weapons',
     infoId: 'id-info-weapons',
     type: 'weapon',
-    nestId: 'nest-id-info-weapons',
   },
   armor: {
     name: "Armor",
     infoId: 'id-info-armor',
     type: 'armor',
-    nestId: 'nest-id-info-armor',
   },
   contacts: {
     name: "Contacts",
     infoId: 'id-info-contacts',
     type: 'contact',
-    nestId: 'nest-id-info-contacts',
   },
   gear: {
     name: "Gear",
     infoId: 'id-info-gear',
     type: 'gear',
-    nestId: 'nest-id-info-gear',
   },
   powers: {
     name: "Powers",
     id: 'id-powers',
     infoId: 'id-info-powers',
     type: 'power',
-    nestId: 'nest-id-info-powers',
   },
   perks: {
     name: "Perks",
     infoId: 'id-info-perks',
     type: 'perk',
-    nestId: 'nest-id-info-perks',
   },
   origins: {
     name: "Origins",
     infoId: 'id-info-origins',
     type: 'origin',
-    nestId: 'nest-id-info-origins',
   },
   bonds: {
     name: "Bonds",
     infoId: 'id-info-bonds',
     type: 'bond',
-    nestId: 'nest-id-info-bonds',
   },
   hangUps: {
     name: "Hang-Ups",
     infoId: 'id-info-hang-ups',
     type: 'hangUp',
-    nestId: 'nest-id-info-hang-ups',
   },
   altModes: {
     name: "Alt Modes",
     infoId: 'id-info-alt-modes',
     type: 'altMode',
-    nestId: 'nest-id-info-alt-modes',
   },
   features: {
     name: "Features",
     infoId: 'id-info-features',
     type: 'feature',
-    nestId: 'nest-id-info-features',
   },
   megaformTraits: {
     name: "Megaform Traits",
     infoId: 'id-info-megaform-traits',
     type: 'megaformTrait',
-    nestId: 'nest-id-info-megaform-traits',
   },
   spells: {
     name: "Spells",
     infoId: 'id-info-spells',
     type: 'spell',
-    nestId: 'nest-id-info-spells',
   },
   magicBaubles: {
     name: "Magic Baubles",
     infoId: 'id-info-magic-baubles',
     type: 'magicBauble',
-    nestId: 'nest-id-info-spells',
   },
   threatPowers: {
     name: "Threat Powers",
     infoId: 'id-info-threat-powers',
     type: 'threatPower',
-    nestId: 'nest-id-info-threat-powers',
   },
 };
 
@@ -141,9 +125,10 @@ export const DEFAULTS = {
       groups: [ // The action groups visible when a Category is hovered/clicked
         {
           type: 'system',
-          nestId: 'nest-id-initiative',
+          nestId: `${INITIATIVE_ID}_${INITIATIVE_ID}`,
           id: INITIATIVE_ID,
-          name: "",
+          name: INITIATIVE_NAME,
+          settings: {showTitle: false}
         },
       ],
     },
@@ -155,25 +140,25 @@ export const DEFAULTS = {
       groups: [
         {
           type: 'system',
-          nestId: 'nest-id-strength',
+          nestId: `${SKILLS_ID}_${SKILLS.strength.id}`,
           id: SKILLS.strength.id,
           name: SKILLS.strength.name,
         },
         {
           type: 'system',
-          nestId: 'nest-id-speed',
+          nestId: `${SKILLS_ID}_${SKILLS.speed.id}`,
           id: SKILLS.speed.id,
           name: SKILLS.speed.name,
         },
         {
           type: 'system',
-          nestId: 'nest-id-smarts',
+          nestId: `${SKILLS_ID}_${SKILLS.smarts.id}`,
           id: SKILLS.smarts.id,
           name: SKILLS.smarts.name,
         },
         {
           type: 'system',
-          nestId: 'nest-id-social',
+          nestId: `${SKILLS_ID}_${SKILLS.social.id}`,
           id: SKILLS.social.id,
           name: SKILLS.social.name,
         },
@@ -187,7 +172,7 @@ export const DEFAULTS = {
       groups: [
         {
           type: 'system',
-          nestId: 'nest-id-weapons',
+          nestId: `${ITEMS.weapons.id}_${ITEMS.weapons.id}`,
           id: ITEMS.weapons.id,
           name: "",
         },
@@ -201,7 +186,7 @@ export const DEFAULTS = {
       groups: [
         {
           type: 'system',
-          nestId: 'nest-id-powers',
+          nestId: `${ITEMS.powers.id}_${ITEMS.powers.id}`,
           id: ITEMS.powers.id,
           name: "",
         },
@@ -214,97 +199,97 @@ export const DEFAULTS = {
       groups: [
         {
           type: 'system',
-          nestId: ITEMS.classFeatures.nestId,
+          nestId: `${INFO_ID}_${ITEMS.classFeatures.infoId}`,
           id: ITEMS.classFeatures.infoId,
           name: ITEMS.classFeatures.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.weapons.nestId,
+          nestId: `${INFO_ID}_${ITEMS.weapons.infoId}`,
           id: ITEMS.weapons.infoId,
           name: ITEMS.weapons.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.armor.nestId,
+          nestId: `${INFO_ID}_${ITEMS.armor.infoId}`,
           id: ITEMS.armor.infoId,
           name: ITEMS.armor.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.contacts.nestId,
+          nestId: `${INFO_ID}_${ITEMS.contacts.infoId}`,
           id: ITEMS.contacts.infoId,
           name: ITEMS.contacts.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.gear.nestId,
+          nestId: `${INFO_ID}_${ITEMS.gear.infoId}`,
           id: ITEMS.gear.infoId,
           name: ITEMS.gear.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.powers.nestId,
+          nestId: `${INFO_ID}_${ITEMS.powers.infoId}`,
           id: ITEMS.powers.infoId,
           name: ITEMS.powers.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.perks.nestId,
+          nestId: `${INFO_ID}_${ITEMS.perks.infoId}`,
           id: ITEMS.perks.infoId,
           name: ITEMS.perks.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.origins.nestId,
+          nestId: `${INFO_ID}_${ITEMS.origins.infoId}`,
           id: ITEMS.origins.infoId,
           name: ITEMS.origins.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.bonds.nestId,
+          nestId: `${INFO_ID}_${ITEMS.bonds.infoId}`,
           id: ITEMS.bonds.infoId,
           name: ITEMS.bonds.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.hangUps.nestId,
+          nestId: `${INFO_ID}_${ITEMS.hangUps.infoId}`,
           id: ITEMS.hangUps.infoId,
           name: ITEMS.hangUps.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.altModes.nestId,
+          nestId: `${INFO_ID}_${ITEMS.altModes.infoId}`,
           id: ITEMS.altModes.infoId,
           name: ITEMS.altModes.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.features.nestId,
+          nestId: `${INFO_ID}_${ITEMS.features.infoId}`,
           id: ITEMS.features.infoId,
           name: ITEMS.features.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.megaformTraits.nestId,
+          nestId: `${INFO_ID}_${ITEMS.megaformTraits.infoId}`,
           id: ITEMS.megaformTraits.infoId,
           name: ITEMS.megaformTraits.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.spells.nestId,
+          nestId: `${INFO_ID}_${ITEMS.spells.infoId}`,
           id: ITEMS.spells.infoId,
           name: ITEMS.spells.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.magicBaubles.nestId,
+          nestId: `${INFO_ID}_${ITEMS.magicBaubles.infoId}`,
           id: ITEMS.magicBaubles.infoId,
           name: ITEMS.magicBaubles.name,
         },
         {
           type: 'system',
-          nestId: ITEMS.threatPowers.nestId,
+          nestId: `${INFO_ID}_${ITEMS.threatPowers.infoId}`,
           id: ITEMS.threatPowers.infoId,
           name: ITEMS.threatPowers.name,
         },
