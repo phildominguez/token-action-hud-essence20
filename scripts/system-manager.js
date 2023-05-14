@@ -2,26 +2,23 @@ import { ActionHandler as ActionHandler } from "./action-handler.js";
 import { RollHandler as Core } from "./roll-handler.js";
 import { DEFAULTS } from './defaults.js';
 
-export let SystemManager = null
+export let SystemManager = null;
 
 Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
   SystemManager = class SystemManager extends coreModule.api.SystemManager {
     /** @override */
-    doGetCategoryManager () {
-      return new CoreCategoryManager()
+    doGetCategoryManager() {
+      return new CoreCategoryManager();
     }
 
     /** @override */
     doGetActionHandler(categoryManager) {
-      let actionHandler = new ActionHandler(categoryManager);
-      return actionHandler;
+      return new ActionHandler(categoryManager);
     }
 
     /** @override */
     getAvailableRollHandlers() {
-      let choices = { core: "Core Essence20" };
-
-      return choices;
+      return { core: "Core Essence20" };
     }
 
     /** @override */
@@ -29,8 +26,8 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
       return new Core();
     }
 
-    async doRegisterDefaultFlags () {
+    async doRegisterDefaultFlags() {
       return DEFAULTS;
     }
   }
-})
+});
