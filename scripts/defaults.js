@@ -42,6 +42,12 @@ export const ITEMS = {
     infoId: 'id-info-weapons',
     type: 'weapon',
   },
+  weaponEffects: {
+    name: "Weapon Effect",
+    id: 'id-weapon-effects',
+    infoId: 'id-info-weapon-effects',
+    type: 'weaponEffect',
+  },
   armor: {
     name: "Armor",
     infoId: 'id-info-armor',

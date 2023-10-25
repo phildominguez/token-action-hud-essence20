@@ -50,11 +50,38 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
       }
     }
 
+    /*
+      Weapon effect groups are added dynamically for each weapon
+    */
     _addWeaponsActions(actor) {
-      this._addActionHelper(
-        this._getActionsForItemType(ITEMS.weapons.type, actor),
-        ITEMS.weapons.id,
-      );
+      const weapons = actor.items.filter((i) => !!i && i.type == ITEMS.weapons.type);
+      for (const weapon of weapons) {
+        // Create a group for this weapon (such as Blade Blaster)
+        const weaponGroupId = `${ITEMS.weapons.id}-${weapon.id}`;
+        this.addGroup(
+          {
+            id: weaponGroupId,
+            name: weapon.name,
+            type: 'system',
+          },
+          {
+            id: ITEMS.weapons.id,
+            type: 'system',
+          },
+        );
+
+        // Get the actions for all the weapon's effects, to be added into this weapon group
+        const weaponEffectsActions = actor.items.filter(
+          // Find all the weaponEffects whose id is in this weapon's list of weaponEffectIds
+          (i) => !!i && i.type == ITEMS.weaponEffects.type && weapon.system.weaponEffectIds.includes(i.id))
+          .map((i) => {
+            let encodedValue = [MACRO_TYPES.item, i.id].join(this.delimiter);
+            return { name: i.name, encodedValue: encodedValue, id: i.id };
+          });
+
+        // Finally, add the effects/actions for this weapon
+        this._addActionHelper(weaponEffectsActions, weaponGroupId);
+      }
     }
 
     _addPowersActions(actor) {
