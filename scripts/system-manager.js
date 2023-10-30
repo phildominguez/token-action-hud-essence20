@@ -1,6 +1,7 @@
 import { ActionHandler as ActionHandler } from "./action-handler.js";
 import { RollHandler as Core } from "./roll-handler.js";
 import { DEFAULTS } from './defaults.js';
+import { register } from './settings.js';
 
 export let SystemManager = null;
 
@@ -12,7 +13,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
     }
 
     /** @override */
-    doGetActionHandler(categoryManager) {
+    getActionHandler(categoryManager) {
       return new ActionHandler(categoryManager);
     }
 
@@ -22,12 +23,18 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
     }
 
     /** @override */
-    doGetRollHandler(handlerId) {
+    getRollHandler(handlerId) {
       return new Core();
     }
 
-    async doRegisterDefaultFlags() {
+    /** @override */
+    async registerDefaults() {
       return DEFAULTS;
+    }
+
+    /** @override */
+    registerSettings(coreUpdate) {
+      register(coreUpdate);
     }
   }
 });

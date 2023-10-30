@@ -1,4 +1,5 @@
 import { MACRO_TYPES } from './constants.js';
+import { Utils } from "./utils.js";
 
 export let RollHandler = null;
 
@@ -11,10 +12,11 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
       const macroType = payload[0];
       const actionId = payload[1];
 
-      if (this.isRenderItem()) {
+      if (Utils.getSetting('renderItemOnRightClick') && this.isRenderItem()) {
         if (macroType == MACRO_TYPES.info) {
-          this.doRenderItem(this.actor, actionId);
+          this.renderItem(this.actor, actionId);
         }
+
         return;
       }
 
