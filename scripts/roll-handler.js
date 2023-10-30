@@ -1,20 +1,22 @@
 import { MACRO_TYPES } from './constants.js';
+import { Utils } from "./utils.js";
 
 export let RollHandler = null;
 
 Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
   RollHandler = class RollHandler extends coreModule.api.RollHandler {
     /** @override */
-    async dandleActionEvent(event, encodedValue) {
+    async doHandleActionEvent(event, encodedValue) {
       let payload = encodedValue.split("|");
 
       const macroType = payload[0];
       const actionId = payload[1];
 
-      if (this.isRenderItem()) {
+      if (Utils.getSetting('renderItemOnRightClick') && this.isRenderItem()) {
         if (macroType == MACRO_TYPES.info) {
           this.renderItem(this.actor, actionId);
         }
+
         return;
       }
 
