@@ -14,7 +14,7 @@ export function register(coreUpdate) {
     type: Boolean,
     default: true,
     onChange: (value) => {
-      onChangeFunction('renderItemOnRightClick', value);
+      coreUpdate(value)
     },
   });
 }
