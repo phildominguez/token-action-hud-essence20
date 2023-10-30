@@ -5,7 +5,7 @@ export let RollHandler = null;
 Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
   RollHandler = class RollHandler extends coreModule.api.RollHandler {
     /** @override */
-    async doHandleActionEvent(event, encodedValue) {
+    async dandleActionEvent(event, encodedValue) {
       let payload = encodedValue.split("|");
 
       const macroType = payload[0];
@@ -13,7 +13,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
 
       if (this.isRenderItem()) {
         if (macroType == MACRO_TYPES.info) {
-          this.doRenderItem(this.actor, actionId);
+          this.renderItem(this.actor, actionId);
         }
         return;
       }
