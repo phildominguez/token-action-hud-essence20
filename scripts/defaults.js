@@ -43,7 +43,7 @@ export const ITEMS = {
     type: 'weapon',
   },
   weaponEffects: {
-    name: "Weapon Effect",
+    name: "Weapon Effects",
     id: 'id-weapon-effects',
     infoId: 'id-info-weapon-effects',
     type: 'weaponEffect',
@@ -175,14 +175,6 @@ export const DEFAULTS = {
       nestId: ITEMS.weapons.id,
       id: ITEMS.weapons.id,
       name: ITEMS.weapons.name,
-      groups: [
-        {
-          type: 'system',
-          nestId: `${ITEMS.weapons.id}_${ITEMS.weapons.id}`,
-          id: ITEMS.weapons.id,
-          name: "",
-        },
-      ],
     },
     {
       type: 'system',
@@ -214,6 +206,12 @@ export const DEFAULTS = {
           nestId: `${INFO_ID}_${ITEMS.weapons.infoId}`,
           id: ITEMS.weapons.infoId,
           name: ITEMS.weapons.name,
+        },
+        {
+          type: 'system',
+          nestId: `${INFO_ID}_${ITEMS.weaponEffects.infoId}`,
+          id: ITEMS.weaponEffects.infoId,
+          name: ITEMS.weaponEffects.name,
         },
         {
           type: 'system',
