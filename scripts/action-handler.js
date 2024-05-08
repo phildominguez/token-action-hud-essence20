@@ -71,12 +71,13 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
         );
 
         // Get the actions for all the weapon's effects, to be added into this weapon group
-        const weaponEffectsActions = actor.items.filter(
-          // Find all the weaponEffects whose id is in this weapon's list of weaponEffectIds
-          (i) => !!i && i.type == ITEMS.weaponEffects.type && weapon.system.weaponEffectIds.includes(i.id))
+        const weaponEffectsActions = Object.values(weapon.system.items).filter(
+          // Find all the weapon's weapon effects
+          (i) => !!i && i.type == ITEMS.weaponEffects.type)
           .map((i) => {
-            let encodedValue = [MACRO_TYPES.item, i.id].join(this.delimiter);
-            return { name: i.name, encodedValue: encodedValue, id: i.id };
+            const weaponEffectId = i.uuid.split('.')[3]; // uuid -> id
+            let encodedValue = [MACRO_TYPES.item, weaponEffectId].join(this.delimiter);
+            return { name: i.name, encodedValue: encodedValue, id: weaponEffectId };
           });
 
         // Finally, add the effects/actions for this weapon
