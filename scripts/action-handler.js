@@ -71,11 +71,11 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
         );
 
         // Get the actions for all the weapon's effects, to be added into this weapon group
-        const weaponEffectsActions = Object.values(weapon.system.items).filter(
+        const weaponEffectsActions = this.actor.items.filter(
           // Find all the weapon's weapon effects
-          (i) => !!i && i.type == ITEMS.weaponEffects.type)
+          (i) => !!i && i.type == ITEMS.weaponEffects.type && i.getFlag('essence20', 'parentId') == weapon.id)
           .map((i) => {
-            const weaponEffectId = i.uuid.split('.')[3]; // uuid -> id
+            const weaponEffectId = i.uuid;
             let encodedValue = [MACRO_TYPES.item, weaponEffectId].join(this.delimiter);
             return { name: i.name, encodedValue: encodedValue, id: weaponEffectId };
           });
@@ -102,8 +102,8 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
     _getActionsForItemType(type, actor, actionId = MACRO_TYPES.item) {
       return actor.items.filter((i) => !!i && i.type == type)
         .map((i) => {
-          let encodedValue = [actionId, i.id].join(this.delimiter);
-          return { name: i.name, encodedValue: encodedValue, id: i.id };
+          let encodedValue = [actionId, i.uuid].join(this.delimiter);
+          return { name: i.name, encodedValue: encodedValue, id: i.uuid };
         });
     }
   }
