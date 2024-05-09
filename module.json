@@ -32,8 +32,7 @@
         "compatibility": [
           {
             "minimum": "1.5",
-            "verified": "1.5",
-            "maximum": "1.5"
+            "verified": "1.5.4"
           }
         ]
       }
