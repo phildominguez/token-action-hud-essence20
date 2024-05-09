@@ -39,7 +39,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
     }
 
     rollItemMacro(actionId, dataset = {}) {
-      const item = this.actor.items.find((i) => i.id === actionId);
+      const item = this.actor.items.find((i) => i.uuid === actionId);
       if (item) {
         item.roll(dataset);
       }
