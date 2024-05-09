@@ -72,8 +72,8 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
 
         // Get the actions for all the weapon's effects, to be added into this weapon group
         const weaponEffectsActions = this.actor.items.filter(
-          // Find all the weapon's weapon effects
-          (i) => !!i && i.type == ITEMS.weaponEffects.type && i.getFlag('essence20', 'parentId') == weapon.id)
+          // Find all the weapon's weapon effects by comparing the parentId (ID or UUID) to the weapon's ID
+          (i) => !!i && i.type == ITEMS.weaponEffects.type && i.getFlag('essence20', 'parentId')?.split('.').slice(-1) == weapon.id)
           .map((i) => {
             const weaponEffectId = i.uuid;
             let encodedValue = [MACRO_TYPES.item, weaponEffectId].join(this.delimiter);
