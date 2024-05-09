@@ -6,7 +6,7 @@ export let RollHandler = null;
 Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
   RollHandler = class RollHandler extends coreModule.api.RollHandler {
     /** @override */
-    async doHandleActionEvent(event, encodedValue) {
+    async handleActionClick(event, encodedValue) {
       let payload = encodedValue.split("|");
 
       const macroType = payload[0];
