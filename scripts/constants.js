@@ -31,12 +31,9 @@ export const MACRO_TYPES = {
  * Actors types supported by this module
  */
 export const SUPPORTED_ACTORS = [
-  'giJoe',
   'megaformZord',
   'npc',
-  'pony',
-  'powerRanger',
-  'transformer',
+  'playerCharacter',
   'vehicle',
   'zord',
 ];
