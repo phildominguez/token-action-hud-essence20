@@ -4,8 +4,8 @@
   "description": "Provide support for the Essence20 game system with Token Action HUD Core",
   "version": "This is auto replaced",
   "compatibility": {
-    "minimum": 12,
-    "verified": 12.331
+    "minimum": 13,
+    "verified": 13.345
   },
   "authors": [
     {
@@ -19,8 +19,8 @@
         "type": "system",
         "compatibility": [
           {
-            "minimum": "4.2.2",
-            "verified": "4.5.0"
+            "minimum": "5.0.0",
+            "verified": "5.0.0"
           }
         ]
       }
@@ -32,7 +32,7 @@
         "compatibility": [
           {
             "minimum": "2",
-            "verified": "2.0.7"
+            "verified": "2.0.15"
           }
         ]
       }
