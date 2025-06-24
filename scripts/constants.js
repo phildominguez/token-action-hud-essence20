@@ -24,6 +24,7 @@ export const MACRO_TYPES = {
   info: 'info',
   initiative: 'initiative',
   item: 'item',
+  morph: 'morph',
   skill: 'skill',
 }
 

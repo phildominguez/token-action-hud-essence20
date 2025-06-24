@@ -4,6 +4,7 @@ import {
   SUPPORTED_ACTORS
 } from './constants.js'
 import {
+  MORPH_ID,
   INITIATIVE_ID,
   ITEMS,
   SKILLS,
@@ -25,6 +26,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
       }
 
       this._addInitiativeActions();
+      this._addMorphActions(actor);
       this._addSkillsActions();
       this._addWeaponsActions(actor);
       this._addPowersActions(actor);
@@ -42,6 +44,20 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
         encodedValue: MACRO_TYPES.initiative,
       }];
       this._addActionHelper(actions, INITIATIVE_ID);
+    }
+
+    _addMorphActions(actor) {
+      const actions = [];
+
+      if (actor.system.canMorph) {
+        actions.push({
+          id: 'id-morph-action',
+          name: actor.system.isMorphed ? "Unmorph" : "Morph",
+          encodedValue: MACRO_TYPES.morph,
+        });
+      }
+
+      this._addActionHelper(actions, MORPH_ID);
     }
 
     _addSkillsActions() {

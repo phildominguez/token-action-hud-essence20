@@ -24,6 +24,9 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
         case MACRO_TYPES.initiative:
           this.actor.rollInitiative({ createCombatants: true });
           break;
+        case MACRO_TYPES.morph:
+          this.actor.morph();
+          break;
         case MACRO_TYPES.skill:
           this.actor.rollSkill({ skill: actionId });
           break;
