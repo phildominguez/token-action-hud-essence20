@@ -4,6 +4,9 @@ export const INITIATIVE_ID = 'id-initiative';
 export const MORPH_NAME = "Morph";
 export const MORPH_ID = 'id-morph';
 
+export const TRANSFORM_NAME = "Transform";
+export const TRANSFORM_ID = 'id-transform';
+
 export const SKILLS_NAME = "Skills";
 export const SKILLS_ID = 'id-skills';
 
@@ -146,12 +149,27 @@ export const DEFAULTS = {
       nestId: MORPH_ID,
       id: MORPH_ID,
       name: MORPH_NAME,
-      groups: [ // The action groups visible when a Category is hovered/clicked
+      groups: [
         {
           type: 'system',
           nestId: `${MORPH_ID}_${MORPH_ID}`,
           id: MORPH_ID,
           name: MORPH_NAME,
+          settings: {showTitle: false},
+        },
+      ],
+    },
+    {
+      type: 'system',
+      nestId: TRANSFORM_ID,
+      id: TRANSFORM_ID,
+      name: TRANSFORM_NAME,
+      groups: [
+        {
+          type: 'system',
+          nestId: `${TRANSFORM_ID}_${TRANSFORM_ID}`,
+          id: TRANSFORM_ID,
+          name: TRANSFORM_NAME,
           settings: {showTitle: false},
         },
       ],

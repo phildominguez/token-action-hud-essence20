@@ -4,10 +4,11 @@ import {
   SUPPORTED_ACTORS
 } from './constants.js'
 import {
-  MORPH_ID,
   INITIATIVE_ID,
   ITEMS,
+  MORPH_ID,
   SKILLS,
+  TRANSFORM_ID,
 } from './defaults.js';
 
 export let ActionHandler = null;
@@ -27,6 +28,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
 
       this._addInitiativeActions();
       this._addMorphActions(actor);
+      this._addTransformActions(actor);
       this._addSkillsActions();
       this._addWeaponsActions(actor);
       this._addPowersActions(actor);
@@ -58,6 +60,20 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
       }
 
       this._addActionHelper(actions, MORPH_ID);
+    }
+
+    _addTransformActions(actor) {
+      const actions = [];
+
+      if (actor.system.canTransform) {
+        actions.push({
+          id: 'id-transform-action',
+          name: "Transform",
+          encodedValue: MACRO_TYPES.transform,
+        });
+      }
+
+      this._addActionHelper(actions, TRANSFORM_ID);
     }
 
     _addSkillsActions() {

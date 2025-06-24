@@ -26,6 +26,7 @@ export const MACRO_TYPES = {
   item: 'item',
   morph: 'morph',
   skill: 'skill',
+  transform: 'transform',
 }
 
 /**
