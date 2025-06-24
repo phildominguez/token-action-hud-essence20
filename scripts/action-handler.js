@@ -64,13 +64,30 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
     }
 
     _addTransformActions(actor) {
+      if (!actor.system.canTransform) {
+        return;
+      }
+
       const actions = [];
 
-      if (actor.system.canTransform) {
+      if (actor.system.isTransformed) {
         actions.push({
-          id: 'id-transform-action',
-          name: "Transform",
-          encodedValue: MACRO_TYPES.transform,
+          id: 'id-transform-bot-mode',
+          encodedValue: 'transform',
+          name: "Bot Mode",
+          img: actor.system.image.unmorphed,
+        });
+      }
+
+      const altModes = actor.items.filter((i) => !!i && i.type == ITEMS.altModes.type);
+
+      for (const altMode of altModes) {
+        const encodedValue = [MACRO_TYPES.transform, altMode.uuid].join(this.delimiter)
+        actions.push({
+          id: altMode.uuid,
+          encodedValue,
+          name: altMode.name,
+          img: altMode.system.tokenImage,
         });
       }
 

@@ -28,7 +28,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
           this.actor.morph();
           break;
         case MACRO_TYPES.transform:
-          this.actor.transform();
+          this.actor.transform(actionId);
           break;
         case MACRO_TYPES.skill:
           this.actor.rollSkill({ skill: actionId });
