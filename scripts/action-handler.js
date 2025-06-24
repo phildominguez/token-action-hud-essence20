@@ -56,6 +56,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
           id: 'id-morph-action',
           name: actor.system.isMorphed ? "Unmorph" : "Morph",
           encodedValue: MACRO_TYPES.morph,
+          img: actor.system.isMorphed ? actor.system.image.unmorphed : actor.system.image.morphed,
         });
       }
 
