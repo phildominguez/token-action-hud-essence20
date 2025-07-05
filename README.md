@@ -6,6 +6,7 @@ For the currently selected token, you can:
 - Roll initiative
 - Roll skills
 - Roll weapons
+- Morph/transform
 - Output info for any owned item to chat
 - Right click an item's button in the Info category to open its sheet
 
