@@ -6,7 +6,9 @@ import {
 import {
   INITIATIVE_ID,
   ITEMS,
+  MORPH_ID,
   SKILLS,
+  TRANSFORM_ID,
 } from './defaults.js';
 
 export let ActionHandler = null;
@@ -25,6 +27,8 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
       }
 
       this._addInitiativeActions();
+      this._addMorphActions(actor);
+      this._addTransformActions(actor);
       this._addSkillsActions();
       this._addWeaponsActions(actor);
       this._addPowersActions(actor);
@@ -42,6 +46,52 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
         encodedValue: MACRO_TYPES.initiative,
       }];
       this._addActionHelper(actions, INITIATIVE_ID);
+    }
+
+    _addMorphActions(actor) {
+      const actions = [];
+
+      if (actor.system.canMorph) {
+        actions.push({
+          id: 'id-morph-action',
+          name: actor.system.isMorphed ? "Unmorph" : "Morph",
+          encodedValue: MACRO_TYPES.morph,
+          img: actor.system.isMorphed ? actor.system.image.unmorphed : actor.system.image.morphed,
+        });
+      }
+
+      this._addActionHelper(actions, MORPH_ID);
+    }
+
+    _addTransformActions(actor) {
+      if (!actor.system.canTransform) {
+        return;
+      }
+
+      const actions = [];
+
+      if (actor.system.isTransformed) {
+        actions.push({
+          id: 'id-transform-bot-mode',
+          encodedValue: 'transform',
+          name: "Bot Mode",
+          img: actor.system.image.unmorphed,
+        });
+      }
+
+      const altModes = actor.items.filter((i) => !!i && i.type == ITEMS.altModes.type);
+
+      for (const altMode of altModes) {
+        const encodedValue = [MACRO_TYPES.transform, altMode.uuid].join(this.delimiter)
+        actions.push({
+          id: altMode.uuid,
+          encodedValue,
+          name: altMode.name,
+          img: altMode.system.tokenImage,
+        });
+      }
+
+      this._addActionHelper(actions, TRANSFORM_ID);
     }
 
     _addSkillsActions() {
