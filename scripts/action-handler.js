@@ -75,7 +75,7 @@ Hooks.once('tokenActionHudCoreApiReady', async (coreModule) => {
           id: 'id-transform-bot-mode',
           encodedValue: 'transform',
           name: "Bot Mode",
-          img: actor.system.image.unmorphed,
+          img: actor.system.image.botmode,
         });
       }
 
