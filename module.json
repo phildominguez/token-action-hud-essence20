@@ -5,7 +5,7 @@
   "version": "This is auto replaced",
   "compatibility": {
     "minimum": 13,
-    "verified": 13.345
+    "verified": "14.368"
   },
   "authors": [
     {
@@ -19,8 +19,8 @@
         "type": "system",
         "compatibility": [
           {
-            "minimum": "5.0.1",
-            "verified": "5.0.2"
+            "minimum": "6.0.4",
+            "verified": "6.0.4"
           }
         ]
       }
@@ -32,7 +32,7 @@
         "compatibility": [
           {
             "minimum": "2",
-            "verified": "2.0.15"
+            "verified": "2.1.2"
           }
         ]
       }

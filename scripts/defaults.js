@@ -13,6 +13,12 @@ export const SKILLS_ID = 'id-skills';
 export const INFO_NAME = "Info";
 export const INFO_ID = 'id-info';
 
+export const USES_NAME = "Uses";
+export const USES_ID = 'id-uses';
+
+export const ZORDS_NAME = "Zords";
+export const ZORDS_ID = 'id-zords';
+
 /* Skills */
 
 export const SKILLS = {
@@ -32,15 +38,19 @@ export const SKILLS = {
     name: "Social",
     id: "id-skills-social",
   },
+  any: {
+    name: "Other",
+    id: "id-skills-other",
+  },
 }
 
 /* Groups - Items */
 
 export const ITEMS = {
   classFeatures: {
-    name: "Class Features",
+    name: "Roles",
     infoId: 'id-info-class-features',
-    type: 'classFeature',
+    type: 'role',
   },
   weapons: {
     name: "Weapons",
@@ -62,7 +72,8 @@ export const ITEMS = {
   contacts: {
     name: "Contacts",
     infoId: 'id-info-contacts',
-    type: 'contact',
+    type: 'perk',
+    subtype: 'contact',
   },
   gear: {
     name: "Gear",
@@ -121,9 +132,9 @@ export const ITEMS = {
     type: 'magicBauble',
   },
   threatPowers: {
-    name: "Threat Powers",
+    name: "Upgrades",
     infoId: 'id-info-threat-powers',
-    type: 'threatPower',
+    type: 'upgrade',
   },
 };
 
@@ -204,6 +215,12 @@ export const DEFAULTS = {
           id: SKILLS.social.id,
           name: SKILLS.social.name,
         },
+        {
+          type: 'system',
+          nestId: `${SKILLS_ID}_${SKILLS.any.id}`,
+          id: SKILLS.any.id,
+          name: SKILLS.any.name,
+        },
       ],
     },
     {
@@ -223,6 +240,36 @@ export const DEFAULTS = {
           nestId: `${ITEMS.powers.id}_${ITEMS.powers.id}`,
           id: ITEMS.powers.id,
           name: "",
+        },
+      ],
+    },
+    {
+      type: 'system',
+      nestId: USES_ID,
+      id: USES_ID,
+      name: USES_NAME,
+      groups: [
+        {
+          type: 'system',
+          nestId: `${USES_ID}_${USES_ID}`,
+          id: USES_ID,
+          name: USES_NAME,
+          settings: {showTitle: false},
+        },
+      ],
+    },
+    {
+      type: 'system',
+      nestId: ZORDS_ID,
+      id: ZORDS_ID,
+      name: ZORDS_NAME,
+      groups: [
+        {
+          type: 'system',
+          nestId: `${ZORDS_ID}_${ZORDS_ID}`,
+          id: ZORDS_ID,
+          name: ZORDS_NAME,
+          settings: {showTitle: false},
         },
       ],
     },
