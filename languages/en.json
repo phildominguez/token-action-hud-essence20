@@ -1,1 +1,7 @@
-{}
+{
+  "tokenActionHud": {
+    "essence20": {
+      "roll": "Roll"
+    }
+  }
+}
